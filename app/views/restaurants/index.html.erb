@@ -1,0 +1,17 @@
+<h1>Restaurant list</h1>
+
+<%= link_to 'Add a restaurant', new_restaurant_path %>
+<div class="restaurant-list">
+  <% @restaurants.each do |restaurant| %>
+  <div class="restaurant">
+    <%= link_to "<h3>#{restaurant.name}</h3>".html_safe, restaurant_path(restaurant) %>
+    <div class="restaurant-infos">
+    <span class="badge badge-pill badge-success">
+      <%= restaurant.category %></span>
+      <p class="address"><%= restaurant.address %></p>
+    </div>
+    <%= link_to 'Add a review', new_restaurant_review_path(restaurant)  %>
+  </div>
+  <% end %>
+
+</div> 

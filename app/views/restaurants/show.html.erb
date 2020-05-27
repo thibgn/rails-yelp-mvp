@@ -1,0 +1,14 @@
+<h1><%= @restaurant.name %></h1>
+
+<span class="badge badge-pill badge-success">
+      <%= @restaurant.category %></span><br/>
+<%= @restaurant.address %>
+<hr/>
+<h3>Reviews</h3>
+<ul>
+<% @restaurant.reviews.each do |review| %>
+  <li><%= review.content %> - <%= review.rating %>/5</li><br/>
+<% end %>
+</ul>
+
+<%= link_to 'Back to list', :restaurants %>
