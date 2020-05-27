@@ -1,17 +1,24 @@
 <h1>Restaurant list</h1>
 
-<%= link_to 'Add a restaurant', new_restaurant_path %>
+<p><%= link_to 'Add a restaurant', new_restaurant_path,
+class: "btn btn-outline-primary btn-sm"%>
+  </p>
+
 <div class="restaurant-list">
   <% @restaurants.each do |restaurant| %>
-  <div class="restaurant">
-    <%= link_to "<h3>#{restaurant.name}</h3>".html_safe, restaurant_path(restaurant) %>
-    <div class="restaurant-infos">
-    <span class="badge badge-pill badge-success">
-      <%= restaurant.category %></span>
-      <p class="address"><%= restaurant.address %></p>
+  <div class="restaurant card">
+    <div class="card-header d-flex justify-content-between">
+      <span><%= link_to restaurant.name, restaurant_path(restaurant) %></span>
+      <span class="badge badge-success"><%= restaurant.category %></span>
     </div>
-    <%= link_to 'Add a review', new_restaurant_review_path(restaurant)  %>
+    <div class="card-body">
+      <p><%= restaurant.address %></p>
+      <%= link_to 'Add a review', new_restaurant_review_path(restaurant),
+      class: "btn btn-outline-secondary btn-sm" %>
+    </div>
   </div>
-  <% end %>
 
-</div> 
+<% end %>
+</div>
+
+</div>

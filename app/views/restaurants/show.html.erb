@@ -1,14 +1,24 @@
-<h1><%= @restaurant.name %></h1>
-
-<span class="badge badge-pill badge-success">
-      <%= @restaurant.category %></span><br/>
-<%= @restaurant.address %>
-<hr/>
-<h3>Reviews</h3>
-<ul>
-<% @restaurant.reviews.each do |review| %>
-  <li><%= review.content %> - <%= review.rating %>/5</li><br/>
-<% end %>
-</ul>
-
-<%= link_to 'Back to list', :restaurants %>
+<%= link_to '< Back to list', :restaurants %>
+<div class="restaurant card">
+  <div class="card-header d-flex justify-content-between">
+    <span><%= @restaurant.name %></span>
+    <span class="badge badge-success"><%= @restaurant.category %></span>
+  </div>
+  <div class="card-body">
+  <div class="restaurant-info d-flex">
+    <p class="address"><%= @restaurant.address %></p>
+    <div class="restaurant-img"><img src="https://picsum.photos/150/150" alt="">
+    </div></div>
+  <br/>
+    <div class="reviews-header">
+    <span>Reviews</span>
+    <%= link_to '+ Add a review', new_restaurant_review_path(@restaurant),
+      class: "btn btn-outline-secondary btn-sm" %>
+      </div>
+      <% @restaurant.reviews.each do |review| %>
+      <hr />
+      <%= review.content %> - <%= review.rating %>/5<br />
+      <% end %>
+  </div>
+</div>
+<br>

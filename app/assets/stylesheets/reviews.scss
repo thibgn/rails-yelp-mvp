@@ -1,3 +1,12 @@
 // Place all the styles related to the Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.reviews-header > span {
+  font-weight: bold;
+}
+
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+}
